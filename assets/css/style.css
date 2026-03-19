@@ -34,7 +34,7 @@
   --radius:     8px;
   --transition: 0.22s ease;
 
-  --header-height: 64px;
+  --header-height: 80px;
   --max-width:     860px;
 }
 
@@ -184,13 +184,23 @@ section, footer {
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  text-decoration: none;
 }
 
 .logo-link img {
-  width: 90px;
-  height: 90px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   border-radius: 50%;
+  background: var(--color-surface);
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(139,115,85,0.15);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.logo-link img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(139,115,85,0.25);
 }
 
 /* Nav container */
