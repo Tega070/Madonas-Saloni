@@ -340,7 +340,7 @@ section, footer {
 .hero-eyebrow {
   font-family: var(--font-heading);
   font-style: italic;
-  font-size: clamp(1rem, 3vw, 1.3rem);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
   color: var(--color-accent-dark);
   letter-spacing: 0.08em;
   margin-bottom: var(--space-sm);
