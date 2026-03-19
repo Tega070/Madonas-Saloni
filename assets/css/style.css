@@ -187,8 +187,8 @@ section, footer {
 }
 
 .logo-link img {
-  width: 48px;
-  height: 48px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
   border-radius: 50%;
 }
