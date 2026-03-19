@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="სალონი ჰოუმი — სილამაზის სალონი წყნეთში, თბილისი. თმის შეჭრა, მანიკური, პედიკური, ეპილაცია და სხვა.">
+  <meta name="keywords" content="სალონი, სალონი ჰოუმი, სილამაზე, წყნეთი, თბილისი, მანიკური, თმის შეჭრა">
+  <meta property="og:title" content="Salon Home — სალონი ჰოუმი">
+  <meta property="og:description" content="სილამაზის სალონი წყნეთში, თბილისი">
+  <meta property="og:type" content="website">
+  <title>Salon Home — სალონი ჰოუმი</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Georgian:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="logo-link" aria-label="Salon Home — მთავარი გვერდი">
+        <img src="images/Salon-Home-Logo.png" alt="Salon Home Logo" width="48" height="48">
+      </a>
+      <nav id="main-nav" aria-label="მთავარი ნავიგაცია">
+        <button id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="მენიუს გახსნა">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul id="nav-menu" role="list">
+          <li><a href="#hero">მთავარი</a></li>
+          <li><a href="#booking">ჯავშანი</a></li>
+          <li><a href="#contact">კონტაქტი</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" aria-label="მთავარი სექცია">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Salon Home</p>
+        <h1 class="hero-title">სალონი ჰოუმი</h1>
+        <p class="hero-tagline">პირველი სალონი წყნეთში</p>
+        <a href="#booking" class="btn btn-primary">ვიზიტის დაჯავშნა</a>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY (auto-scroll carousel) ===== -->
+    <section id="gallery" aria-label="სალონის ფოტოები">
+      <div class="gallery-strip">
+        <!-- Original set + duplicate set for seamless infinite loop -->
+        <div class="gallery-track" aria-hidden="true">
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80" alt="თმის სტილი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="სალონის ინტერიერი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700&q=80" alt="მანიკური"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=80" alt="სილამაზის სტილი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80" alt="თმის სალონი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=700&q=80" alt="თმის შეღებვა"></div>
+          <!-- Duplicate for seamless loop -->
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80" alt="თმის სტილი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="სალონის ინტერიერი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700&q=80" alt="მანიკური"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=80" alt="სილამაზის სტილი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80" alt="თმის სალონი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=700&q=80" alt="თმის შეღებვა"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BOOKING ===== -->
+    <section id="booking" aria-labelledby="booking-heading">
+      <div class="container">
+        <h2 id="booking-heading" class="section-title">ვიზიტის დაჯავშნა</h2>
+        <p class="section-subtitle">
+          შეავსეთ ფორმა და სალონი დაგიკავშირდებათ დასადასტურებლად.
+        </p>
+
+        <form id="booking-form" class="reveal" novalidate aria-label="ჯავშნის ფორმა">
+
+          <!-- Validation errors -->
+          <div id="form-errors" class="form-errors" role="alert" aria-live="polite" hidden></div>
+
+          <div class="form-group">
+            <label for="f-name">სახელი და გვარი <span class="required" aria-hidden="true">*</span></label>
+            <input
+              type="text"
+              id="f-name"
+              name="name"
+              autocomplete="name"
+              placeholder="მაგ: მარიამ გიორგაძე"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="f-phone">ტელეფონის ნომერი <span class="required" aria-hidden="true">*</span></label>
+            <input
+              type="tel"
+              id="f-phone"
+              name="phone"
+              autocomplete="tel"
+              placeholder="მაგ: 555 123 456"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="f-email">
+              ელ-ფოსტა
+              <span class="label-note">(სურვილისამებრ — საჭიროა ავტო-დადასტურებისთვის)</span>
+            </label>
+            <input
+              type="email"
+              id="f-email"
+              name="email"
+              autocomplete="email"
+              placeholder="მაგ: example@gmail.com"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="f-service">სერვისი <span class="required" aria-hidden="true">*</span></label>
+            <select id="f-service" name="service" required>
+              <option value="">— აირჩიეთ სერვისი —</option>
+
+              <optgroup label="✂ თმა — მამაკაცი">
+                <option value="მამაკაცის თმის შეჭრა — 15₾">მამაკაცის თმის შეჭრა — 15₾</option>
+                <option value="გადაპარსვა — 12-15₾">გადაპარსვა — 12-15₾</option>
+                <option value="წვერი-კონტური — 7₾">წვერი-კონტური — 7₾</option>
+              </optgroup>
+
+              <optgroup label="✂ თმა — ქალი">
+                <option value="ქალის თმის შეჭრა-გაშრობა — 20₾">ქალის თმის შეჭრა-გაშრობა — 20₾</option>
+                <option value="შეღებვა — 20₾">შეღებვა — 20₾</option>
+                <option value="დავარცხნა (სიგრძის მიხედვით) — 20₾">დავარცხნა (სიგრძის მიხედვით) — 20₾</option>
+                <option value="დახვევა (სიგრძის მიხედვით) — 20-25₾">დახვევა (სიგრძის მიხედვით) — 20-25₾</option>
+                <option value="ჩოლკა — 5₾">ჩოლკა — 5₾</option>
+                <option value="მელირება (სიგრძის მიხედვით) — 100-150₾">მელირება (სიგრძის მიხედვით) — 100-150₾</option>
+                <option value="ქიმიური დახვევა (სიგრძის მიხედვით) — 100-150₾">ქიმიური დახვევა (სიგრძის მიხედვით) — 100-150₾</option>
+                <option value="სადღესასწაულო ვარცხნილობა — 25-35₾">სადღესასწაულო ვარცხნილობა — 25-35₾</option>
+                <option value="დაბანა — 5₾">დაბანა — 5₾</option>
+              </optgroup>
+
+              <optgroup label="💅 ფრჩხილი">
+                <option value="მანიკური — ჩვეულებრივი, მოწესრიგება — 15₾">მანიკური — ჩვეულებრივი, მოწესრიგება — 15₾</option>
+                <option value="პედიკური — 35₾">პედიკური — 35₾</option>
+                <option value="ლაქის გადასმა, მოხსნა — 5₾">ლაქის გადასმა, მოხსნა — 5₾</option>
+                <option value="შილაქი (ხელის) — 35₾">შილაქი (ხელის) — 35₾</option>
+                <option value="შილაქი (ფეხის) — 45-55₾">შილაქი (ფეხის) — 45-55₾</option>
+                <option value="ფრენჩი — (+5)₾">ფრენჩი — (+5)₾</option>
+                <option value="ფრჩხილის დაჭრა (ფეხი-ხელი) — 15₾">ფრჩხილის დაჭრა (ფეხი-ხელი) — 15₾</option>
+              </optgroup>
+
+              <optgroup label="✨ სახე და სხეული">
+                <option value="წარბები — 12-15₾">წარბები — 12-15₾</option>
+                <option value="ყურის გახვრეტა — 15₾">ყურის გახვრეტა — 15₾</option>
+                <option value="ბიო-ეპილაცია — 7₾">ბიო-ეპილაცია — 7₾</option>
+                <option value="სახის გაწმენდა — 50-80₾">სახის გაწმენდა — 50-80₾</option>
+                <option value="წამწამები (სიგრძის მიხედვით) — 60-70₾-დან">წამწამები (სიგრძის მიხედვით) — 60-70₾-დან</option>
+                <option value="ეპილაცია (1 სთ) — 40₾">ეპილაცია (1 სთ) — 40₾</option>
+                <option value="წამწამების ლამინირება — 50₾">წამწამების ლამინირება — 50₾</option>
+                <option value="წარბების ლამინირება — 70₾">წარბების ლამინირება — 70₾</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-date">თარიღი <span class="required" aria-hidden="true">*</span></label>
+              <input
+                type="date"
+                id="f-date"
+                name="date"
+                required
+              >
+            </div>
+            <div class="form-group">
+              <label for="f-time">სასურველი დრო <span class="required" aria-hidden="true">*</span></label>
+              <select id="f-time" name="time" required>
+                <option value="">— დრო —</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Success message -->
+          <div id="form-success" class="form-success" role="status" aria-live="polite" hidden>
+            <p>
+              ✓ თქვენი მოთხოვნა მიღებულია! სალონი მალე დაგიკავშირდებათ
+              დასადასტურებლად. გმადლობთ!
+            </p>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+            ჯავშნის გაგზავნა
+          </button>
+
+          <p class="form-note">
+            <span class="required">*</span> — სავალდებულო ველი
+          </p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER / CONTACT ===== -->
+  <footer id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <h2 id="contact-heading" class="section-title section-title--light">კონტაქტი</h2>
+
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <address>
+            <ul class="contact-list" role="list">
+              <li>
+                <svg class="contact-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                <span>56 რუსთაველის ქ., წყნეთი, თბილისი</span>
+              </li>
+              <li>
+                <svg class="contact-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <a href="tel:+995557118530">557 11 85 30</a>
+              </li>
+              <li>
+                <svg class="contact-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>ყოველდღე 11:00 — 20:00</span>
+              </li>
+              <li>
+                <svg class="contact-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <a href="https://www.facebook.com/estetika.salon.home" target="_blank" rel="noopener noreferrer">Facebook — Salon Home</a>
+              </li>
+            </ul>
+          </address>
+        </div>
+
+        <div class="contact-map">
+          <iframe
+            src="https://maps.google.com/maps?q=56+Rustaveli+St,+Tskneti,+Tbilisi,+Georgia&output=embed&z=16"
+            width="100%"
+            height="250"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Salon Home მდებარეობა — წყნეთი, თბილისი"
+          ></iframe>
+          <p class="map-note">
+            <a href="https://maps.app.goo.gl/9XPDbBjhBgTLEJkK8" target="_blank" rel="noopener noreferrer">გახსენით Google Maps-ში →</a>
+          </p>
+        </div>
+      </div>
+
+      <p class="footer-copy">
+        © 2026 Salon Home — სალონი ჰოუმი. ყველა უფლება დაცულია.
+      </p>
+    </div>
+  </footer>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- Main script -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
