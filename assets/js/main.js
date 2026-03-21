@@ -176,10 +176,7 @@ function initBookingForm() {
 
     } catch (err) {
       console.error('EmailJS error:', err);
-      showErrors([
-        'გაგზავნა ვერ მოხერხდა. გთხოვთ, სცადეთ ხელახლა ან ' +
-        'დაგვიკავშირდით პირდაპირ: 557 11 85 30'
-      ]);
+      showErrors(['DEBUG: ' + JSON.stringify(err)]);
     } finally {
       setLoading(false);
     }
