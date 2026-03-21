@@ -52,26 +52,55 @@
       </div>
     </section>
 
-    <!-- ===== GALLERY (auto-scroll carousel) ===== -->
+    <!-- ===== GALLERY (two-row infinite scroll) ===== -->
     <section id="gallery" aria-label="სალონის ფოტოები">
-      <div class="gallery-strip">
-        <!-- Original set + duplicate set for seamless infinite loop -->
-        <div class="gallery-track" aria-hidden="true">
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80" alt="თმის სტილი"></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="სალონის ინტერიერი"></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700&q=80" alt="მანიკური"></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=80" alt="სილამაზის სტილი"></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80" alt="თმის სალონი"></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=700&q=80" alt="თმის შეღებვა"></div>
-          <!-- Duplicate for seamless loop -->
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80" alt="თმის სტილი"></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="სალონის ინტერიერი"></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700&q=80" alt="მანიკური"></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=80" alt="სილამაზის სტილი"></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80" alt="თმის სალონი"></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=700&q=80" alt="თმის შეღებვა"></div>
+
+      <!-- Row 1 — scrolls left -->
+      <div class="gallery-strip" aria-hidden="true">
+        <div class="gallery-track gallery-track--fwd">
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&h=400&fit=crop&q=80" alt="თმის სტილი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop&q=80" alt="სალონის ინტერიერი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&h=400&fit=crop&q=80" alt="თმის შეღებვა"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop&q=80" alt="თმის სალონი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop&q=80" alt="თმის შეჭრა"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&h=400&fit=crop&q=80" alt="სილამაზე"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop&q=80" alt="სახის მოვლა"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&h=400&fit=crop&q=80" alt="ფრჩხილის ხელოვნება"></div>
+          <!-- duplicate for seamless loop -->
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&h=400&fit=crop&q=80" alt="თმის სტილი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop&q=80" alt="სალონის ინტერიერი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&h=400&fit=crop&q=80" alt="თმის შეღებვა"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop&q=80" alt="თმის სალონი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop&q=80" alt="თმის შეჭრა"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&h=400&fit=crop&q=80" alt="სილამაზე"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop&q=80" alt="სახის მოვლა"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&h=400&fit=crop&q=80" alt="ფრჩხილის ხელოვნება"></div>
         </div>
       </div>
+
+      <!-- Row 2 — scrolls right -->
+      <div class="gallery-strip" aria-hidden="true">
+        <div class="gallery-track gallery-track--rev">
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop&q=80" alt="მანიკური"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&h=400&fit=crop&q=80" alt="ნეილ არტი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=600&h=400&fit=crop&q=80" alt="სილამაზის სალონი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&h=400&fit=crop&q=80" alt="სილამაზე"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop&q=80" alt="სილამაზის მოვლა"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop&q=80" alt="თმის სტილი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=600&h=400&fit=crop&q=80" alt="სილამაზის სალონი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600&h=400&fit=crop&q=80" alt="ლაქი"></div>
+          <!-- duplicate for seamless loop -->
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop&q=80" alt="მანიკური"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&h=400&fit=crop&q=80" alt="ნეილ არტი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=600&h=400&fit=crop&q=80" alt="სილამაზის სალონი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&h=400&fit=crop&q=80" alt="სილამაზე"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop&q=80" alt="სილამაზის მოვლა"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop&q=80" alt="თმის სტილი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=600&h=400&fit=crop&q=80" alt="სილამაზის სალონი"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600&h=400&fit=crop&q=80" alt="ლაქი"></div>
+        </div>
+      </div>
+
     </section>
 
     <!-- ===== BOOKING ===== -->
