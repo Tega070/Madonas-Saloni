@@ -161,12 +161,12 @@ function initBookingForm() {
 
     try {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_SALON_TMPL, {
-        client_name:  document.getElementById('f-name').value.trim(),
-        client_phone: document.getElementById('f-phone').value.trim(),
-        email:        document.getElementById('f-email').value.trim() || 'არ მიუთითებია',
-        service:      document.getElementById('f-service').value,
-        date:         document.getElementById('f-date').value,
-        time:         document.getElementById('f-time').value,
+        name:    document.getElementById('f-name').value.trim(),
+        phone:   document.getElementById('f-phone').value.trim(),
+        email:   document.getElementById('f-email').value.trim() || 'არ მიუთითებია',
+        service: document.getElementById('f-service').value,
+        date:    document.getElementById('f-date').value,
+        time:    document.getElementById('f-time').value,
       });
 
       // Reset and show success
