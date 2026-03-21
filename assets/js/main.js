@@ -230,7 +230,116 @@ function initBookingForm() {
 }
 
 /* ============================================================
-   5. SCROLL REVEAL — fade-in elements as they enter the viewport
+   5. CUSTOM SERVICE SELECT — elegant grouped dropdown
+   ============================================================ */
+function initCustomServiceSelect() {
+  const native = document.getElementById('f-service');
+  if (!native) return;
+
+  // Wrap native select
+  const wrap = document.createElement('div');
+  wrap.className = 'cs-wrap';
+  native.parentNode.insertBefore(wrap, native);
+  native.classList.add('cs-native');
+  wrap.appendChild(native);
+
+  // Build trigger button
+  const trigger = document.createElement('button');
+  trigger.type = 'button';
+  trigger.className = 'cs-trigger';
+  trigger.setAttribute('aria-haspopup', 'listbox');
+  trigger.setAttribute('aria-expanded', 'false');
+  trigger.innerHTML = `
+    <span class="cs-trigger-text is-placeholder">— აირჩიეთ სერვისი —</span>
+    <svg class="cs-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+      <path d="M1 1l5 5 5-5" stroke="#8B7355" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`;
+  wrap.appendChild(trigger);
+
+  // Build dropdown panel
+  const panel = document.createElement('div');
+  panel.className = 'cs-panel';
+  panel.setAttribute('role', 'listbox');
+
+  Array.from(native.children).forEach(child => {
+    if (child.tagName !== 'OPTGROUP') return;
+    const group = document.createElement('div');
+    group.className = 'cs-group';
+
+    const groupLabel = document.createElement('div');
+    groupLabel.className = 'cs-group-label';
+    groupLabel.textContent = child.label;
+    group.appendChild(groupLabel);
+
+    Array.from(child.children).forEach(opt => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cs-option';
+      btn.dataset.value = opt.value;
+      btn.setAttribute('role', 'option');
+
+      const sep = opt.value.lastIndexOf(' — ');
+      const name  = sep > -1 ? opt.value.slice(0, sep) : opt.value;
+      const price = sep > -1 ? opt.value.slice(sep + 3) : '';
+
+      btn.innerHTML = `<span class="cs-option-name">${name}</span>${price ? `<span class="cs-option-price">${price}</span>` : ''}`;
+      group.appendChild(btn);
+    });
+
+    panel.appendChild(group);
+  });
+  wrap.appendChild(panel);
+
+  // Open / close helpers
+  function openPanel() {
+    panel.classList.add('is-open');
+    trigger.classList.add('is-open');
+    trigger.setAttribute('aria-expanded', 'true');
+  }
+  function closePanel() {
+    panel.classList.remove('is-open');
+    trigger.classList.remove('is-open');
+    trigger.setAttribute('aria-expanded', 'false');
+  }
+
+  // Toggle on trigger click
+  trigger.addEventListener('click', () => {
+    panel.classList.contains('is-open') ? closePanel() : openPanel();
+  });
+
+  // Select an option
+  panel.addEventListener('click', e => {
+    const opt = e.target.closest('.cs-option');
+    if (!opt) return;
+    const val = opt.dataset.value;
+    native.value = val;
+    const label = trigger.querySelector('.cs-trigger-text');
+    const sep = val.lastIndexOf(' — ');
+    label.textContent = sep > -1 ? val.slice(0, sep) : val;
+    label.classList.remove('is-placeholder');
+    panel.querySelectorAll('.cs-option').forEach(o => o.classList.remove('is-selected'));
+    opt.classList.add('is-selected');
+    closePanel();
+    native.dispatchEvent(new Event('change'));
+  });
+
+  // Reset custom UI when form resets
+  native.closest('form').addEventListener('reset', () => {
+    setTimeout(() => {
+      const label = trigger.querySelector('.cs-trigger-text');
+      label.textContent = '— აირჩიეთ სერვისი —';
+      label.classList.add('is-placeholder');
+      panel.querySelectorAll('.cs-option').forEach(o => o.classList.remove('is-selected'));
+    }, 0);
+  });
+
+  // Close on outside click or Escape
+  document.addEventListener('click', e => { if (!wrap.contains(e.target)) closePanel(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
+}
+
+/* ============================================================
+   6. SCROLL REVEAL — fade-in elements as they enter the viewport
    ============================================================ */
 function initScrollReveal() {
   const observer = new IntersectionObserver((entries) => {
@@ -251,6 +360,7 @@ function initScrollReveal() {
 document.addEventListener('DOMContentLoaded', () => {
   initDateField();
   initMobileNav();
+  initCustomServiceSelect();
   initBookingForm();
   initScrollReveal();
 });

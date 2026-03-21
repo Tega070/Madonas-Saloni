@@ -457,6 +457,142 @@ input::placeholder {
   opacity: 0.7;
 }
 
+/* ---- Custom service select ---- */
+.cs-wrap {
+  position: relative;
+}
+
+.cs-native {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+}
+
+.cs-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--color-accent-light);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.cs-trigger:focus,
+.cs-trigger.is-open {
+  outline: none;
+  border-color: var(--color-accent-dark);
+  box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.14);
+}
+
+.cs-trigger-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cs-trigger-text.is-placeholder {
+  color: rgba(61, 43, 31, 0.45);
+}
+
+.cs-chevron {
+  flex-shrink: 0;
+  transition: transform 0.22s ease;
+}
+
+.cs-trigger.is-open .cs-chevron {
+  transform: rotate(180deg);
+}
+
+.cs-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-accent-light);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 40px rgba(61, 43, 31, 0.15);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 200;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cs-panel.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.cs-group-label {
+  padding: 0.65rem 1rem 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  border-top: 1px solid var(--color-accent-light);
+}
+
+.cs-group:first-child .cs-group-label {
+  border-top: none;
+}
+
+.cs-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.55rem 1rem;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition);
+  gap: 0.75rem;
+}
+
+.cs-option:hover {
+  background: rgba(139, 115, 85, 0.07);
+}
+
+.cs-option.is-selected {
+  background: rgba(139, 115, 85, 0.11);
+  color: var(--color-accent-dark);
+  font-weight: 500;
+}
+
+.cs-option-name {
+  flex: 1;
+}
+
+.cs-option-price {
+  font-size: 0.8rem;
+  color: var(--color-accent-dark);
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 /* Date and time side-by-side on wider screens */
 .form-row {
   display: grid;
