@@ -9,6 +9,7 @@
 const EMAILJS_PUBLIC_KEY   = 'fRtfjcdr3Kh9AZJAG';
 const EMAILJS_SERVICE_ID   = 'service_dp0u6tr';
 const EMAILJS_SALON_TMPL   = 'template_2c44rzi';   // salon notification
+const APPS_SCRIPT_URL      = 'https://script.google.com/macros/s/AKfycbxelOAKLc3x16BxWSOcnIy6cKAeueUKlWyIYYyCLGteqkLq9uWzS0Z6rHZeF3AwxFr9pw/exec';
 
 /* ============================================================
    1. DATE FIELD — set minimum date to today
@@ -160,6 +161,27 @@ function initBookingForm() {
     setLoading(true);
 
     try {
+      // Reserve the slot in Google Sheets first
+      const slotRes = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+          date:    document.getElementById('f-date').value,
+          time:    document.getElementById('f-time').value,
+          name:    document.getElementById('f-name').value.trim(),
+          phone:   document.getElementById('f-phone').value.trim(),
+          email:   document.getElementById('f-email').value.trim() || 'არ მიუთითებია',
+          service: document.getElementById('f-service').value,
+        }),
+      });
+      const slotData = await slotRes.json();
+
+      if (!slotData.success) {
+        showErrors(['სამწუხაროდ, ეს დრო უკვე დაჯავშნულია. გთხოვთ, სხვა დრო აირჩიოთ.']);
+        setLoading(false);
+        return;
+      }
+
+      // Slot reserved — send EmailJS notification
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_SALON_TMPL, {
         name:    document.getElementById('f-name').value.trim(),
         phone:   document.getElementById('f-phone').value.trim(),
@@ -171,11 +193,11 @@ function initBookingForm() {
 
       // Reset and show success
       form.reset();
-      initDateField();       // re-apply today's min after reset
+      initDateField();
       showSuccess();
 
     } catch (err) {
-      console.error('EmailJS error:', err);
+      console.error('Booking error:', err);
       showErrors([
         'გაგზავნა ვერ მოხერხდა. გთხოვთ, სცადეთ ხელახლა ან ' +
         'დაგვიკავშირდით პირდაპირ: 557 11 85 30'
@@ -183,6 +205,27 @@ function initBookingForm() {
     } finally {
       setLoading(false);
     }
+  });
+
+  // Disable already-booked times when date changes
+  document.getElementById('f-date').addEventListener('change', async (e) => {
+    const date = e.target.value;
+    const timeSelect = document.getElementById('f-time');
+    let booked = [];
+    if (date) {
+      try {
+        const res = await fetch(`${APPS_SCRIPT_URL}?date=${date}`);
+        const json = await res.json();
+        booked = json.booked || [];
+      } catch { booked = []; }
+    }
+    Array.from(timeSelect.options).forEach(opt => {
+      if (!opt.value) return;
+      const taken = booked.includes(opt.value);
+      opt.disabled = taken;
+      opt.textContent = taken ? opt.value + ' — დაჯავშნულია' : opt.value;
+    });
+    if (timeSelect.value && booked.includes(timeSelect.value)) timeSelect.value = '';
   });
 }
 
