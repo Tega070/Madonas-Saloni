@@ -7,9 +7,8 @@
 // Replace these three values after setting up your EmailJS account.
 // See README or the plan file for step-by-step setup instructions.
 const EMAILJS_PUBLIC_KEY   = 'emE4LBx0QhUSigsC6';
-const EMAILJS_SERVICE_ID   = 'service_4rsltb5';
-const EMAILJS_SALON_TMPL   = 'template_7nib1b5';   // "Contact Us" — salon notification
-const EMAILJS_REPLY_TMPL   = 'template_xmkmyod';   // customer auto-reply
+const EMAILJS_SERVICE_ID   = 'service_qjlutmd';
+const EMAILJS_SALON_TMPL   = 'template_w07g836';   // salon notification
 
 /* ============================================================
    1. DATE FIELD — set minimum date to today
@@ -174,11 +173,6 @@ function initBookingForm() {
     try {
       // Send notification to salon
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_SALON_TMPL, templateParams);
-
-      // Send auto-reply to customer only if they provided an email
-      if (customerEmail) {
-        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_REPLY_TMPL, templateParams);
-      }
 
       // Reset and show success
       form.reset();
