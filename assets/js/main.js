@@ -75,8 +75,8 @@ function initMobileNav() {
 function validateBookingForm(data) {
   const errors = [];
 
-  const name    = (data.get('name')    || '').trim();
-  const phone   = (data.get('phone')   || '').trim();
+  const name    = (data.get('client_name')  || '').trim();
+  const phone   = (data.get('client_phone') || '').trim();
   const service = (data.get('service') || '').trim();
   const date    = (data.get('date')    || '').trim();
   const time    = (data.get('time')    || '').trim();
@@ -110,9 +110,9 @@ function initBookingForm() {
 
   if (!form) return;
 
-  // Initialize EmailJS with the public key
+  // Initialize EmailJS (v4 syntax)
   if (typeof emailjs !== 'undefined') {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
   }
 
   function showErrors(errors) {
@@ -157,22 +157,11 @@ function initBookingForm() {
       return;
     }
 
-    // Build template parameters
-    const customerEmail = (data.get('email') || '').trim();
-    const templateParams = {
-      client_name:  data.get('name').trim(),
-      client_phone: data.get('phone').trim(),
-      email:        customerEmail || 'არ მიუთითებია',
-      service:      data.get('service'),
-      date:         data.get('date'),
-      time:         data.get('time'),
-    };
-
     setLoading(true);
 
     try {
-      // Send notification to salon
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_SALON_TMPL, templateParams);
+      // sendForm reads inputs directly by their name= attribute
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_SALON_TMPL, form);
 
       // Reset and show success
       form.reset();
