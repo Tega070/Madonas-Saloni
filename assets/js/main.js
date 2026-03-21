@@ -160,12 +160,12 @@ function initBookingForm() {
     // Build template parameters
     const customerEmail = (data.get('email') || '').trim();
     const templateParams = {
-      customer_name:  data.get('name').trim(),
-      customer_phone: data.get('phone').trim(),
-      customer_email: customerEmail || 'არ მიუთითებია',
-      service:        data.get('service'),
-      date:           data.get('date'),
-      time:           data.get('time'),
+      name:    data.get('name').trim(),
+      phone:   data.get('phone').trim(),
+      email:   customerEmail || 'არ მიუთითებია',
+      service: data.get('service'),
+      date:    data.get('date'),
+      time:    data.get('time'),
     };
 
     setLoading(true);
