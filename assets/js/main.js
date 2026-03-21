@@ -6,8 +6,8 @@
 /* ---- EmailJS configuration ---- */
 // Replace these three values after setting up your EmailJS account.
 // See README or the plan file for step-by-step setup instructions.
-const EMAILJS_PUBLIC_KEY   = 'emE4LBx0QhUSigsC6';
-const EMAILJS_SERVICE_ID   = 'service_qjlutmd';
+const EMAILJS_PUBLIC_KEY   = 'fRtfjcdr3Kh9AZJAG';
+const EMAILJS_SERVICE_ID   = 'service_dp0u6tr';
 const EMAILJS_SALON_TMPL   = 'template_2c44rzi';   // salon notification
 
 /* ============================================================
@@ -176,7 +176,10 @@ function initBookingForm() {
 
     } catch (err) {
       console.error('EmailJS error:', err);
-      showErrors(['DEBUG: ' + JSON.stringify(err)]);
+      showErrors([
+        'გაგზავნა ვერ მოხერხდა. გთხოვთ, სცადეთ ხელახლა ან ' +
+        'დაგვიკავშირდით პირდაპირ: 557 11 85 30'
+      ]);
     } finally {
       setLoading(false);
     }
