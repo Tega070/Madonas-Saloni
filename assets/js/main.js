@@ -7,8 +7,8 @@
 // Replace these three values after setting up your EmailJS account.
 // See README or the plan file for step-by-step setup instructions.
 const EMAILJS_PUBLIC_KEY   = 'emE4LBx0QhUSigsC6';
-const EMAILJS_SERVICE_ID   = 'service_qjlutmd';
-const EMAILJS_SALON_TMPL   = 'template_w07g836';   // salon notification
+const EMAILJS_SERVICE_ID   = 'service_dp0u6tr';
+const EMAILJS_SALON_TMPL   = 'template_2c44rzi';   // salon notification
 
 /* ============================================================
    1. DATE FIELD — set minimum date to today
