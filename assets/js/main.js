@@ -176,7 +176,7 @@ function initBookingForm() {
       const slotData = await slotRes.json();
 
       if (!slotData.success) {
-        showErrors(['სამწუხაროდ, ეს დრო უკვე დაჯავშნულია. გთხოვთ, სხვა დრო აირჩიოთ.']);
+        showErrors(['სამწუხაროდ, ეს დრო უკვე დაჯავშნილია. გთხოვთ, სხვა დრო აირჩიოთ.']);
         setLoading(false);
         return;
       }
@@ -223,7 +223,7 @@ function initBookingForm() {
       if (!opt.value) return;
       const taken = booked.includes(opt.value);
       opt.disabled = taken;
-      opt.textContent = taken ? opt.value + ' — დაჯავშნულია' : opt.value;
+      opt.textContent = taken ? opt.value + ' — დაჯავშნილია' : opt.value;
     });
     if (timeSelect.value && booked.includes(timeSelect.value)) timeSelect.value = '';
   });
